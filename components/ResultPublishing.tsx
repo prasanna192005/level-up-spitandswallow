@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { EvaluationService } from '../services/EvaluationService';
 import { sampleStudents } from '../utils/sampleData';
 import CryptoJS from 'crypto-js';
-import ResultQR from './ResultQR';
 
 interface Result {
   hashId: string;
@@ -207,23 +206,23 @@ export default function ResultPublishing({ studentId }: ResultPublishingProps) {
               className={`p-4 rounded-lg ${getStatusColor(result.status)}`}
             >
               <div className="flex justify-between items-start">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">
-                      Student ID: {result.studentId}
+                <div>
+                  <p className="text-sm font-medium text-gray-900">
+                    Student ID: {result.studentId}
+                  </p>
+                  <p className="text-sm text-gray-500">Subject: {result.subject}</p>
+                  <p className="text-sm text-gray-500">Exam ID: {result.examId}</p>
+                  <p className="text-sm text-gray-500">Marks: {result.marks}</p>
+                  <p className="text-sm text-gray-500">
+                    Status: <span className={getModerationColor(result.moderationStatus)}>
+                      {result.moderationStatus}
+                    </span>
+                  </p>
+                  {result.moderationComments && (
+                    <p className="text-sm text-gray-500 mt-1">
+                      Comments: {result.moderationComments}
                     </p>
-                    <p className="text-sm text-gray-500">Subject: {result.subject}</p>
-                    <p className="text-sm text-gray-500">Exam ID: {result.examId}</p>
-                    <p className="text-sm text-gray-500">Marks: {result.marks}</p>
-                    <p className="text-sm text-gray-500">
-                      Status: <span className={getModerationColor(result.moderationStatus)}>
-                        {result.moderationStatus}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="ml-4">
-                    <ResultQR result={result} />
-                  </div>
+                  )}
                 </div>
                 <div className="flex space-x-2">
                   {result.status === 'pending_publication' && (

@@ -1,4 +1,4 @@
-import { sha256 } from 'crypto-js';
+import { SHA256 } from 'crypto-js';
 
 interface StudentMapping {
   hashId: string;
@@ -92,7 +92,7 @@ export class EvaluationService {
 
   // Verify hash integrity
   public verifyHash(studentId: string, examId: string, timestamp: string, hashId: string): boolean {
-    const computedHash = sha256(`${studentId}-${examId}-${timestamp}`).toString();
+    const computedHash = SHA256(`${studentId}-${examId}-${timestamp}`).toString();
     return computedHash === hashId;
   }
 

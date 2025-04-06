@@ -163,11 +163,11 @@ export default function VerificationQR({ packageId, location, status, verifiedBy
         </button>
 
         {/* Debug section - remove in production */}
-        <div className="mt-4 p-2 bg-gray-50 rounded-md">
+        {/* <div className="mt-4 p-2 bg-gray-50 rounded-md">
           <p className="text-xs text-gray-500">Debug Info:</p>
           <p className="text-xs font-mono">Code: {generatedCode}</p>
           <p className="text-xs font-mono">Package: {packageId}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Secure Examination System',
+  title: 'MarkSure',
   description: 'Blockchain-based secure examination and result management system',
 }
 
@@ -21,9 +21,13 @@ export default function RootLayout({
         <nav className="bg-gray-800 text-white p-4">
           <div className="container mx-auto flex items-center justify-between">
             <Link href="/" className="text-xl font-bold">
-              Secure Exam System
+              MarkSure
             </Link>
-            <div className="space-x-4">
+            <div className="space-x-4">             
+            <Link href="/results
+            " className="hover:text-gray-300">
+                Results
+              </Link>
               <Link href="/" className="hover:text-gray-300">
                 Dashboard
               </Link>
